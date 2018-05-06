@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">YandexImageViewer</string>
+    <string name="yandex_flickr">YandexFlickr</string>
+    <string name="loading_photos">Photo is downloading</string>
+    <string name="send_intent">SENDED_PHOTO</string>
+    <string name="full_image_description">Full Image</string>
 </resources>

@@ -3,6 +3,7 @@ package com.zadanie.yandex.ruslan.yandeximageviewer.network;
 import android.content.Context;
 
 import com.zadanie.yandex.ruslan.yandeximageviewer.BuildConfig;
+import com.zadanie.yandex.ruslan.yandeximageviewer.presenter.MainInteractorImpl;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +25,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
  */
 @Module
 public class NetworkModule {
-    public static final int CONNECT_TIMEOUT_IN_MS = 30000;
+	private static final int CONNECT_TIMEOUT_IN_MS = 30000;
 
     @Provides
     @Singleton
@@ -83,4 +84,10 @@ public class NetworkModule {
     FlickrService FlickrService(Retrofit retrofit) {
         return retrofit.create(FlickrService.class);
     }
+
+	@Singleton
+	@Provides
+	MainInteractorImpl mainInteractor(FlickrService flickrService) {
+		return new MainInteractorImpl(flickrService);
+	}
 }
